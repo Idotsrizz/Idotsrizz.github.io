@@ -8,7 +8,7 @@ This is our digital playground, where the magic of The Idots comes to life. We�
 
 ## Features (or lack thereof)
 
-- **About Us**: Want to know more about who we are? Well, too bad. But if you’re curious, there’s a page that tells our (questionable) story.
+- **About Us**: Want to know more about who we are? Well, too bad.
 - **Projects**: See the cool (and maybe a bit useless) stuff we've worked on. It's not groundbreaking, but it’s ours.
 - **Contact**: Got something to say? There’s a form for that. We might even read it.
 
