@@ -1,0 +1,126 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #282828;
+    color: white;
+}
+
+.login-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a1a;
+}
+
+.login-box {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.login-box input {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+}
+
+.login-box button {
+    padding: 10px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.dashboard {
+    display: flex;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #1a1a1a;
+    padding: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.sidebar ul li:hover {
+    background-color: #333;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .memz-count {
+    font-size: 20px;
+}
+
+header .user-info {
+    display: flex;
+    align-items: center;
+}
+
+header .user-info img {
+    border-radius: 50%;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+.daily-reward, .shop-items, .inventory-items, .achievements {
+    margin-top: 20px;
+}
+
+.item, .achievement {
+    background-color: #444;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.item img {
+    width: 100px;
+    height: 100px;
+}
+
+.item button, .achievement button {
+    background-color: #4CAF50;
+    border: none;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
