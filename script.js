@@ -1,59 +1,67 @@
 // script.js
 
-let memz = 1000;
+// Mock data for demonstration
+let users = [
+    { username: "PlayerOne", email: "playerone@example.com", password: "password1", memz: 5000, avatar: "avatar1.png" },
+    { username: "PlayerTwo", email: "playertwo@example.com", password: "password2", memz: 20000, avatar: "avatar2.png" },
+];
 
-function login() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+// Current user simulation (this would typically be set after login)
+let currentUser = users[0]; // Assume the first user is logged in for this example
 
-    if (username && password) {
-        document.getElementById('loginScreen').style.display = 'none';
-        document.getElementById('dashboard').style.display = 'flex';
-        document.getElementById('usernameDisplay').textContent = username;
-    } else {
-        alert('Please enter your credentials.');
+// Function to display user data on the account management page
+function loadAccountData() {
+    if (!currentUser) return;
+
+    document.getElementById('username').value = currentUser.username;
+    document.getElementById('email').value = currentUser.email;
+
+    // Display current avatar
+    if (currentUser.avatar) {
+        selectAvatar(currentUser.avatar);
     }
 }
 
-function showSection(sectionId) {
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => section.classList.remove('active'));
+// Function to select an avatar
+function selectAvatar(avatar) {
+    document.getElementById('selectedAvatar').value = avatar;
 
-    document.getElementById(sectionId).classList.add('active');
+    // Remove selected class from all avatars
+    document.querySelectorAll('.avatar').forEach(img => img.classList.remove('selected'));
+
+    // Add selected class to the clicked avatar
+    document.querySelector(`img[src='avatars/${avatar}']`).classList.add('selected');
+
+    // Hide the uploaded avatar preview
+    document.getElementById('uploadedAvatar').style.display = 'none';
 }
 
-function spinRoulette() {
-    const prize = Math.floor(Math.random() * 1000) + 1; // Random prize between 1 and 1000 Memz
-    memz += prize;
-    document.getElementById('memzAmount').textContent = memz;
-    document.getElementById('rouletteResult').textContent = `You won ${prize} Memz!`;
-}
+// Function to preview uploaded avatar
+function previewAvatar() {
+    const fileInput = document.getElementById('avatarUpload');
+    const file = fileInput.files[0];
+    const reader = new FileReader();
 
-function buyItem(itemId) {
-    let price;
-    if (itemId === 1) price = 500;
-    if (itemId === 2) price = 1000;
+    reader.onloadend = function () {
+        const uploadedAvatar = document.getElementById('uploadedAvatar');
+        uploadedAvatar.src = reader.result;
+        uploadedAvatar.style.display = 'block';
 
-    if (memz >= price) {
-        memz -= price;
-        document.getElementById('memzAmount').textContent = memz;
-        addItemToInventory(`Item ${itemId}`);
+        // Clear selection of predefined avatars
+        document.querySelectorAll('.avatar').forEach(img => img.classList.remove('selected'));
+
+        // Clear the selected avatar value
+        document.getElementById('selectedAvatar').value = '';
+    };
+
+    if (file) {
+        reader.readAsDataURL(file);
     } else {
-        alert('Not enough Memz.');
+        document.getElementById('uploadedAvatar').style.display = 'none';
     }
 }
 
-function addItemToInventory(itemName) {
-    const inventoryItems = document.getElementById('inventoryItems');
-    const newItem = document.createElement('div');
-    newItem.className = 'item';
-    newItem.textContent = itemName;
-    inventoryItems.appendChild(newItem);
-}
-
-function claimAchievement() {
-    const reward = 1000; // Reward for the achievement
-    memz += reward;
-    document.getElementById('memzAmount').textContent = memz;
-    alert('Achievement claimed! You earned 1000 Memz.');
+// Function to update account details
+function updateAccount() {
+    const email = document.getElementById('email')
 }

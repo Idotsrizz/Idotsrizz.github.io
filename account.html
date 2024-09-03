@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Your The Idots Account</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="account-management">
+        <h2>Manage Your The Idots Account</h2>
+        <form id="accountForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="" readonly><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value=""><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" value=""><br><br>
+
+            <label for="avatar">Select Avatar:</label>
+            <div id="avatarSelection">
+                <img src="avatars/avatar1.png" onclick="selectAvatar('avatar1.png')" class="avatar">
+                <img src="avatars/avatar2.png" onclick="selectAvatar('avatar2.png')" class="avatar">
+                <img src="avatars/avatar3.png" onclick="selectAvatar('avatar3.png')" class="avatar">
+            </div>
+            <input type="hidden" id="selectedAvatar" name="selectedAvatar" value=""><br><br>
+
+            <label for="avatarUpload">Or Upload Your Own Avatar:</label>
+            <input type="file" id="avatarUpload" name="avatarUpload" accept="image/*" onchange="previewAvatar()"><br><br>
+
+            <img id="uploadedAvatar" class="avatar" style="display: none;"><br><br>
+
+            <button type="button" onclick="updateAccount()">Update Account</button>
+            <button type="button" onclick="deleteAccount()">Delete Account</button>
+            <br><br>
+            <a href="index.html">Back to The Idots Dashboard</a>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
